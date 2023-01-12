@@ -1,5 +1,6 @@
 #include <iostream>
 #include "board.h"
+#include "solver.h"
 using namespace std;
 
 int main(){
@@ -15,4 +16,7 @@ int main(){
     board.add_hole(3,4,'o');
     board.add_hole(4,1,'o');
     cout << board.to_string() << endl;
+
+    Solver ai;
+    cout << ai.is_solved(board) << endl;
 }

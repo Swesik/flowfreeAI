@@ -12,7 +12,7 @@ CXXFLAGS ?= --std=c++11 -Wall -Werror -pedantic -g -fsanitize=address -fsanitize
 output_main: main.exe
 	./main.exe > main_output.out
 
-main.exe: main.cpp board.cpp
+main.exe: main.cpp board.cpp solver.cpp
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
 .SUFFIXES:
