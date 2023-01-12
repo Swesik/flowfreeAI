@@ -24,7 +24,7 @@ Board::Board(int w, int h):width(w),height(h){
 
 void Board::add_hole(int col, int row, char color){
     board[col][row] = toupper(color);
-    holes.push_back(pair(col,row));
+    holes.push_back(pair<int,int>(col,row));
 }
 
 void Board::add_pipe(int col, int row, char color){
