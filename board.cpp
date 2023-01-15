@@ -51,6 +51,10 @@ bool Board::is_hole(int col, int row) const{
     return isupper(board[col][row]);
 }
 
+bool Board::is_empty(int col, int row) const{
+    return board[col][row] == '*';
+}
+
 char Board::get_color(int col, int row) const{
     return tolower(board[col][row]);
 }

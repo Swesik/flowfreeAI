@@ -19,6 +19,7 @@ public:
 
     bool is_pipe(int col, int row) const;
     bool is_hole(int col, int row) const;
+    bool is_empty(int col, int row) const;
 
     char get_color(int col, int row) const;
     std::vector<std::pair<int,int>> get_holes() const;

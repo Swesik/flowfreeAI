@@ -1,4 +1,23 @@
+#include <algorithm>
 #include "solver.h"
+
+using namespace std;
+struct Move
+{
+    Board state;
+    int col, row;
+};
+
+class compare_moves{
+private:
+    int dist_metric(Board state, int col, int row){
+        return min(col,state.width-col-1) + min(row,state.height-row-1);
+    }
+public:
+    bool operator()(Move a, Move b){
+        return dist_metric(a.state,a.col,a.row) < dist_metric(b.state,b.col,b.row);
+    }
+};
 
 int count_neighbors(const Board& state,int i,int j){
     int neighbors = 0;
@@ -17,7 +36,7 @@ int count_neighbors(const Board& state,int i,int j){
     }
     return neighbors;
 }
-bool Solver::is_solved(const Board& state){
+bool Solver::is_solved(const Board& state) const{
     for(int i = 0; i < state.width; i++){
         for(int j = 0; j< state.height; j++){
             if(state.is_pipe(i,j) && count_neighbors(state,i,j) !=2){
@@ -30,3 +49,5 @@ bool Solver::is_solved(const Board& state){
     }
     return true;
 }
+
+//lowest value when closest to a corner
